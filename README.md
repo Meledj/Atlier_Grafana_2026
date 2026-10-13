@@ -279,6 +279,18 @@ Laissez tourner une à deux minutes, observez le tableau de bord (réglez le raf
 - **Créer une alerte** Grafana qui se déclenche quand un conteneur `web` dépasse un seuil de mémoire.
 - **Tout décrire dans un `docker-compose.yml`** pour démarrer la pile complète en une seule commande.
 
+## Correction
+
+Le dossier [`correction/`](correction/) contient un `docker-compose.yml` et son `prometheus.yml`, qui lancent la pile complète des étapes 1 à 4 :
+
+```bash
+docker rm -f web1 web2 web3 cadvisor prometheus grafana   # si vous avez déjà lancé les conteneurs à la main
+cd correction
+docker compose up -d
+```
+
+Les étapes 5 et 6 (source de données et tableau de bord) restent à faire dans Grafana. Pour tout arrêter : `docker compose down`.
+
 ---
 
 ## Dépannage
